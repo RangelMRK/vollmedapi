@@ -10,7 +10,5 @@ public record DadosCancelamentoConsulta(
         Long idConsulta,
 
         @NotNull
-        MotivoCancelamento motivoCancelamento,
-
-        LocalDateTime data) {
+        MotivoCancelamento motivoCancelamento) {
 }

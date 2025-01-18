@@ -1,5 +1,6 @@
 package med.voll.api.infra.security;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,6 +31,7 @@ public class SecurityConfigurations {
                             req.requestMatchers("/login").permitAll();
                             req.requestMatchers(HttpMethod.DELETE,"/medicos").hasRole("ADMIN");
                             req.requestMatchers(HttpMethod.DELETE,"/pacientes").hasRole("ADMIN");
+                            req.requestMatchers("/v3/api-docs/**","/swagger-ui.html","swagger-ui/**").permitAll();
                             req.anyRequest().authenticated();
 
                         })
@@ -46,4 +48,7 @@ public class SecurityConfigurations {
     public PasswordEncoder paswordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
+
+
 }
